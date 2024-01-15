@@ -20,7 +20,7 @@ const config = {
     dribbble: '',
     behance: '',
     medium: '',
-    dev: 'arifszn',
+    dev: '',
     stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
     telegram: '',
