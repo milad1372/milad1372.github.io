@@ -33,20 +33,18 @@ const config = {
       '', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
-    'PHP',
-    'Laravel',
+    'Python',
     'JavaScript',
     'React.js',
-    'Node.js',
-    'Nest.js',
-    'MySQL',
+    'ELK',
+    'MongoDB',
     'PostgreSQL',
+    'Django',
+    'PyTorch',
+    'TensorFlow',
     'Git',
     'Docker',
-    'PHPUnit',
     'CSS',
-    'Antd',
-    'Tailwind',
   ],
   experiences: [
     {
