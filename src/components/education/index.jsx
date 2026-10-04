@@ -1,4 +1,4 @@
-import { skeleton } from '../../helpers/utils';
+import { skeleton, timeRange } from '../../helpers/utils';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
@@ -63,7 +63,7 @@ const Education = ({ loading, education }) => {
                     {education.map((item, index) => (
                       <ListItem
                         key={index}
-                        time={`${item.from} - ${item.to}`}
+                        time={timeRange(item.from, item.to)}
                         degree={item.degree}
                         institution={item.institution}
                       />

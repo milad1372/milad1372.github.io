@@ -9,6 +9,8 @@ import Skill from './skill';
 import Experience from './experience';
 import Certification from './certification';
 import Education from './education';
+import Publication from './publication';
+import Service from './service';
 import Project from './project';
 import Blog from './blog';
 import Footer from './footer';
@@ -62,7 +64,7 @@ const GitProfile = ({ config }) => {
         let profileData = {
           avatar: data.avatar_url,
           name: data.name ? data.name : '',
-          bio: data.bio ? data.bio : '',
+          bio: sanitizedConfig.bio || data.bio || '',
           location: data.location ? data.location : '',
           company: data.company ? data.company : '',
         };
@@ -189,6 +191,10 @@ const GitProfile = ({ config }) => {
                         loading={loading}
                         education={sanitizedConfig.education}
                       />
+                      <Service
+                        loading={loading}
+                        service={sanitizedConfig.service}
+                      />
                       <Certification
                         loading={loading}
                         certifications={sanitizedConfig.certifications}
@@ -197,6 +203,11 @@ const GitProfile = ({ config }) => {
                   </div>
                   <div className="lg:col-span-2 col-span-1">
                     <div className="grid grid-cols-1 gap-6">
+                      <Publication
+                        loading={loading}
+                        publications={sanitizedConfig.publications}
+                        googleScholar={sanitizedConfig.social.googleScholar}
+                      />
                       <Project
                         repo={repo}
                         loading={loading}
@@ -243,6 +254,7 @@ GitProfile.propTypes = {
         projects: PropTypes.array,
       }),
     }).isRequired,
+    bio: PropTypes.string,
     social: PropTypes.shape({
       linkedin: PropTypes.string,
       twitter: PropTypes.string,
@@ -260,6 +272,7 @@ GitProfile.propTypes = {
       telegram: PropTypes.string,
       phone: PropTypes.string,
       email: PropTypes.string,
+      googleScholar: PropTypes.string,
     }),
     resume: PropTypes.shape({
       fileUrl: PropTypes.string,
@@ -295,6 +308,21 @@ GitProfile.propTypes = {
         degree: PropTypes.string,
         from: PropTypes.string,
         to: PropTypes.string,
+      })
+    ),
+    publications: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        authors: PropTypes.string,
+        venue: PropTypes.string,
+        year: PropTypes.string,
+        link: PropTypes.string,
+      })
+    ),
+    service: PropTypes.arrayOf(
+      PropTypes.shape({
+        role: PropTypes.string,
+        detail: PropTypes.string,
       })
     ),
     blog: PropTypes.shape({
