@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
   AiFillMediumSquare,
 } from 'react-icons/ai';
-import { SiTwitter } from 'react-icons/si';
+import { SiGooglescholar, SiTwitter } from 'react-icons/si';
 import { CgDribbble } from 'react-icons/cg';
 import { RiPhoneFill, RiMailFill } from 'react-icons/ri';
 import { Fragment } from 'react';
@@ -118,6 +118,14 @@ const Details = ({ profile, loading, social, github }) => {
                 value={github.username}
                 link={`https://github.com/${github.username}`}
               />
+              {social?.googleScholar && (
+                <ListItem
+                  icon={<SiGooglescholar />}
+                  title="Google Scholar:"
+                  value="Profile"
+                  link={`https://scholar.google.com/citations?user=${social.googleScholar}`}
+                />
+              )}
               {social?.twitter && (
                 <ListItem
                   icon={<SiTwitter />}

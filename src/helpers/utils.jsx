@@ -43,6 +43,12 @@ export const skeleton = ({
   );
 };
 
+export const timeRange = (from, to) => {
+  if (!from || from === to) return to || '';
+  if (!to) return from;
+  return `${from} - ${to}`;
+};
+
 export const languageColor = (language) => {
   if (typeof colors[language] !== 'undefined') {
     return colors[language].color;
@@ -144,6 +150,7 @@ export const sanitizeConfig = (config) => {
         projects: config?.github?.exclude?.projects || [],
       },
     },
+    bio: config?.bio || '',
     social: {
       linkedin: config?.social?.linkedin,
       twitter: config?.social?.twitter,
@@ -161,6 +168,7 @@ export const sanitizeConfig = (config) => {
       email: config?.social?.email,
       skype: config?.social?.skype,
       telegram: config?.social?.telegram,
+      googleScholar: config?.social?.googleScholar,
     },
     resume: {
       fileUrl: config?.resume?.fileUrl || '',
@@ -170,6 +178,8 @@ export const sanitizeConfig = (config) => {
     experiences: config?.experiences || [],
     certifications: config?.certifications || [],
     education: config?.education || [],
+    publications: config?.publications || [],
+    service: config?.service || [],
     blog: {
       source: config?.blog?.source,
       username: config?.blog?.username,
